@@ -4,11 +4,12 @@ __pycache__/
 *$py.class
 
 # user init
-ckpt/
+/ckpt/
 *embedding_64.bin
 *Tencent_AILab_ChineseEmbedding.txt
 *ailab_annoy.ann
 *ailab_annoy_dict.txt
+.idea
 
 # Distribution / packaging
 .Python
