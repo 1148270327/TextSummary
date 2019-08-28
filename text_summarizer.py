@@ -16,14 +16,12 @@ import data_utils # absolute import
 from headline import create_model, buckets
 
 
-## config # new Large Config, set to tf.app.flags
 FLAGS = tf.app.flags.FLAGS # Load tf.FLAGS param from headline module
-buckets = buckets
+
 
 class ModelLoader(object):
 
-    def __init__(self, lang):
-        self.lang = lang
+    def __init__(self):
         print("Starting new Tensorflow session...")
         self.session = tf.Session()
         print("Initializing text summarization class...")
@@ -71,6 +69,13 @@ class ModelLoader(object):
         headline_sum = " ".join([tf.compat.as_str(rev_vocab[output]) for output in outputs])
         return headline_sum
 
-def load_model(lang = 'zh'):
-    return ModelLoader(lang)
 
+def load_model():
+    return ModelLoader()
+
+
+if __name__=='__main__':
+    ss = '美国 科罗拉多州 山林 大火 持续 肆虐 TAG_NAME_EN 当地 时间 TAG_DATE 横扫 州 内 第二 大 城市 科罗拉多斯 普林斯 一 处 居民区 TAG_NAME_EN 迫使 超过 TAG_NUMBER TAG_NAME_EN TAG_NUMBER 万 人 紧急 撤离 。 美国 正 值 山火 多发 季 TAG_NAME_EN 现有 TAG_NUMBER 场 山火 处于 活跃 状态 。'
+    ins = load_model()
+    head_line = ins.summarize(ss)
+    print(head_line)

@@ -128,19 +128,19 @@ def create_model(session, forward_only):
   initializer = tf.random_uniform_initializer(-config.init_scale, config.init_scale)
   # Adding unique variable scope to model
   with tf.variable_scope(FLAGS.headline_scope_name, reuse=None, initializer=initializer):
-    model = seq2seq_model.Seq2SeqModel(
-        FLAGS.vocab_size,
-        FLAGS.vocab_size,
-        buckets,
-        FLAGS.size,
-        FLAGS.num_layers,
-        FLAGS.max_gradient_norm,
-        FLAGS.batch_size,
-        FLAGS.learning_rate,
-        FLAGS.learning_rate_decay_factor,
-        use_lstm = True, # LSTM instend of GRU
-        num_samples = FLAGS.num_samples,
-        forward_only=forward_only)
+        model = seq2seq_model.Seq2SeqModel(
+            FLAGS.vocab_size,
+            FLAGS.vocab_size,
+            buckets,
+            FLAGS.size,
+            FLAGS.num_layers,
+            FLAGS.max_gradient_norm,
+            FLAGS.batch_size,
+            FLAGS.learning_rate,
+            FLAGS.learning_rate_decay_factor,
+            use_lstm = True, # LSTM instend of GRU
+            num_samples = FLAGS.num_samples,
+            forward_only=forward_only)
   
   ckpt = tf.train.get_checkpoint_state(FLAGS.train_dir)
   if ckpt:

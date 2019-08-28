@@ -5,6 +5,7 @@ __pycache__/
 
 # user init
 ckpt/*
+data/
 *embedding_64.bin
 *Tencent_AILab_ChineseEmbedding.txt
 *ailab_annoy.ann
