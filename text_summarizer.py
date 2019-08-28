@@ -4,9 +4,6 @@
 """
 text summarizer class for calling from other module
 """
-from __future__ import absolute_import
-from __future__ import division
-from __future__ import print_function
 
 import sys, os
 import numpy as np
@@ -15,13 +12,11 @@ import tensorflow as tf
 parent_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__))) # parent folder
 sys.path.append(parent_dir)
 
-from textsum import data_utils # absolute import
-from textsum import seq2seq_model # absolute import
-from textsum.headline import config
-from textsum.headline import create_model
-from textsum.headline import buckets
+import data_utils # absolute import
+from headline import config, create_model, buckets
 
-config # new Large Config, set to tf.app.flags
+
+## config # new Large Config, set to tf.app.flags
 FLAGS = tf.app.flags.FLAGS # Load tf.FLAGS param from headline module
 buckets = buckets
 
@@ -56,7 +51,7 @@ class ModelLoader(object):
         token_ids = data_utils.sentence_to_token_ids(tf.compat.as_bytes(sentence), vocab)
         print (token_ids) # print token ids
         # Which bucket does it belong to?
-        bucket_id = min([b for b in xrange(len(buckets))
+        bucket_id = min([b for b in range(len(buckets))
                        if buckets[b][0] > len(token_ids)])
         # Get a 1-element batch to feed the sentence to the model.
         print ("current bucket id" + str(bucket_id))
