@@ -13,7 +13,7 @@ parent_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__))) # paren
 sys.path.append(parent_dir)
 
 import data_utils # absolute import
-from headline import config, create_model, buckets
+from headline import create_model, buckets
 
 
 ## config # new Large Config, set to tf.app.flags
