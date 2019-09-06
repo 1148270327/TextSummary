@@ -24,10 +24,9 @@ import random
 import numpy as np
 from six.moves import xrange  # pylint: disable=redefined-builtin
 import tensorflow as tf
-import seq2seq_attn
 
-import data_utils
-import eval
+from AiSummary import data_utils, seq2seq_attn
+
 
 class Seq2SeqModel(object):
   """Sequence-to-sequence model with attention and for multiple buckets.

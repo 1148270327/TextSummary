@@ -8,26 +8,21 @@ from __future__ import absolute_import
 from __future__ import division
 from __future__ import print_function
 
-import math
 import os
-import random
 import sys
-import time
 import codecs
 
 import numpy as np
 from six.moves import xrange
 import tensorflow as tf
 
-import data_utils
-import seq2seq_model_attn
-import eval
-from headline import LargeConfig
+from AiSummary import data_utils, seq2seq_model_attn, eval
+from AiSummary.headline import LargeConfig
 
 config = LargeConfig()          # new Large Config, 
 FLAGS = tf.app.flags.FLAGS      # Reuse the tf.app.flags from headline module
 
-from headline import buckets
+from AiSummary.headline import buckets
 buckets = buckets
 
 def create_model(session, forward_only):
@@ -189,7 +184,7 @@ def generate_summary(input_dir, reference_dir, summary_dir):
       # Evaluate ROUGE-N score, compare summary and reference, both are 'str' object in py2 or 'bytes' in py3
       reference = []
       reference.append([tf.compat.as_str(w) for w in references[i].split(" ")])
-      score = eval.evaluate(summary, reference, method = "rouge_n", n = 2)
+      score = eval.evaluate(summary, reference, method ="rouge_n", n = 2)
       print ("Evaludated Rouge-2 score is %.4f" % score)
   
   # Write Output to summary_dir

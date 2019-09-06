@@ -12,8 +12,8 @@ import tensorflow as tf
 parent_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__))) # parent folder
 sys.path.append(parent_dir)
 
-import data_utils # absolute import
-from headline import create_model, buckets
+from AiSummary import data_utils
+from AiSummary.headline import create_model, buckets
 
 
 FLAGS = tf.app.flags.FLAGS # Load tf.FLAGS param from headline module

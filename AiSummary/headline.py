@@ -11,7 +11,6 @@ from __future__ import print_function
 
 import math
 import os
-import random
 import sys
 import time
 
@@ -25,8 +24,7 @@ sys.path.append(parent_dir)
 #from textsum import data_utils # absolute import
 #from textsum import seq2seq_model # absolute import
 
-import data_utils
-import seq2seq_model
+from AiSummary import data_utils, seq2seq_model
 
 file_path = os.path.dirname(os.path.abspath(__file__))
 data_path = os.path.join(file_path, "news")
