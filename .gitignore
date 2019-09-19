@@ -4,7 +4,7 @@ __pycache__/
 *$py.class
 
 # user init
-*/headline_large.ckpt-48000.data-00000-of-00001
+**/ckpt/headline_large.ckpt-48000.data-00000-of-00001
 data/
 *embedding_64.bin
 *Tencent_AILab_ChineseEmbedding.txt
