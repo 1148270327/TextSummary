@@ -58,7 +58,7 @@ def decode():
           {bucket_id: [(token_ids, [])]}, bucket_id)
       
       # Get output logits for the sentence.
-      _, _, output_logits_batch = model.step(sess, encoder_inputs, decoder_inputs, target_weights, bucket_id, True)
+      _, _, output_logits_batch, _ = model.step(sess, encoder_inputs, decoder_inputs, target_weights, bucket_id, True)
       # This is a greedy decoder - outputs are just argmaxes of output_logits.     
       output_logits = []
       for item in output_logits_batch:
@@ -117,7 +117,7 @@ def generate_summary(input_dir, reference_dir, summary_dir):
           {bucket_id: [(token_ids, [])]}, bucket_id)
       
       # Get output logits for the sentence.
-      _, _, output_logits_batch = model.step(sess, encoder_inputs, decoder_inputs, target_weights, bucket_id, True)
+      _, _, output_logits_batch, _ = model.step(sess, encoder_inputs, decoder_inputs, target_weights, bucket_id, True)
       output_logits = []
       for item in output_logits_batch:
         output_logits.append(item[0])
